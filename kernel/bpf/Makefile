@@ -8,14 +8,6 @@ CFLAGS_core.o += $(call cc-disable-warning, override-init) $(cflags-nogcse-yy)
 
 obj-$(CONFIG_BPF_SYSCALL) += syscall.o verifier.o inode.o helpers.o tnum.o
 obj-$(CONFIG_BPF_SYSCALL) += hashtab.o arraymap.o percpu_freelist.o bpf_lru_list.o lpm_trie.o map_in_map.o
-<<<<<<< HEAD
-obj-$(CONFIG_BPF_SYSCALL) += btf.o
-ifeq ($(CONFIG_NET),y)
-obj-$(CONFIG_BPF_SYSCALL) += devmap.o
-obj-$(CONFIG_BPF_SYSCALL) += offload.o
-ifeq ($(CONFIG_STREAM_PARSER),y)
-obj-$(CONFIG_BPF_SYSCALL) += sockmap.o
-=======
 obj-$(CONFIG_BPF_SYSCALL) += local_storage.o queue_stack_maps.o
 obj-$(CONFIG_BPF_SYSCALL) += disasm.o
 obj-$(CONFIG_BPF_SYSCALL) += btf.o
@@ -24,7 +16,6 @@ obj-$(CONFIG_BPF_SYSCALL) += devmap.o
 obj-$(CONFIG_BPF_SYSCALL) += cpumap.o
 ifeq ($(CONFIG_XDP_SOCKETS),y)
 obj-$(CONFIG_BPF_SYSCALL) += xskmap.o
->>>>>>> 37379ac72166 (Merge branch 'bpf-5.4' of https://github.com/PhoenixKernel/linux.git into main)
 endif
 obj-$(CONFIG_BPF_SYSCALL) += offload.o
 endif
