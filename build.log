@@ -1,0 +1,13 @@
+make[1]: Entering directory '/tmp/hos/out'
+  GEN     ./Makefile
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/bin2c
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+scripts/kconfig/conf  --silentoldconfig Kconfig
+drivers/input/touchscreen/focaltech_touch/Kconfig:5:warning: ignoring type redefinition of 'TOUCHSCREEN_FTS' from 'boolean' to 'tristate'
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
