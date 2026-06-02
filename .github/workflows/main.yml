@@ -1,0 +1,47 @@
+name: Compiling kernel for MIUI
+
+on:
+  push:
+    branches:
+      - "16"
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+  workflow_dispatch:
+    inputs:
+      kernel_repo:
+        description: 'Kernel Repository URL'
+        required: true
+        default: 'https://github.com/Kzee-Kecap/kernel_xiaomi_courbet.git'
+      kernel_branch:
+        description: 'Kernel Branch'
+        required: true
+        default: 'A15-ksu'
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Clone kernel source
+        run: |
+          REPO="${{ github.event.inputs.kernel_repo || 'https://github.com/Kzee-Kecap/kernel_xiaomi_courbet.git' }}"
+          BRANCH="${{ github.event.inputs.kernel_branch || 'A15-ksu' }}"
+          echo "Cloning $REPO @ $BRANCH"
+          git clone --depth=1 -b "$BRANCH" "$REPO" kernel_source
+
+      - name: Set up dependencies
+        run: |
+          sudo apt update
+          sudo apt install bc build-essential bison flex zip p7zip-full libc6 curl libstdc++6 git wget libssl-dev zstd lld python3 -y
+
+      - name: Compile Kernel
+        run: |
+          cd kernel_source
+          chmod +x ./mk.sh
+          ./mk.sh
