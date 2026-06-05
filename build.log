@@ -1,0 +1,34 @@
+make[1]: Entering directory '/tmp/aosp/out'
+  GEN     ./Makefile
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/basic/bin2c
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+scripts/kconfig/conf  --silentoldconfig Kconfig
+  CHK     include/config/kernel.release
+  GEN     ./Makefile
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+  Using .. as source for kernel
+-- KernelSU-Next Manager signature size: 0x3e6
+-- KernelSU-Next Manager signature hash: 79e590113c4c4c0c222978e413a5faa801666957b1212a328e46c00c69821bf7
+-- KernelSU-Next Wild Manager signature size: 0x39b
+-- KernelSU-Next Wild Manager signature hash: 593d4ce870c02468639efeef631e07ca4d852d63f154be56706229f9a5be0800
+
+-- SUSFS_VERSION: v1.5.9
+  HOSTCC  scripts/dtc/checks.o
+  HOSTCC  scripts/dtc/util.o
+  HOSTCC  scripts/mod/modpost.o
+  SHIPPED scripts/dtc/dtc-lexer.lex.c
+  SHIPPED scripts/dtc/dtc-parser.tab.h
+  SHIPPED scripts/dtc/dtc-parser.tab.c
+  HOSTCC  scripts/dtc/dtc-lexer.lex.o
+  CHK     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/dtc/dtc-parser.tab.o
+  HOSTLD  scripts/dtc/dtc
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTCC  scripts/kallsyms
+  HOSTCC  scripts/sortextable
+  HOSTLD  scripts/mod/modpost
+  HOSTCC  scripts/asn1_compiler
